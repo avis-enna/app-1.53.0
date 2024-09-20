@@ -9,7 +9,7 @@ BACKUP_FILE = 'questions_backup.csv'
 
 def read_questions():
     questions = []
-    with open(QUESTIONS_FILE, mode='w') as file:
+    with open(QUESTIONS_FILE, mode='w+') as file:
         csv_reader = csv.DictReader(file)
         for row in csv_reader:
             questions.append(row)
@@ -43,7 +43,7 @@ def export_questions_to_json():
 
 
 def add_question():
-questions = read_questions()
+    questions = read_questions()
     num = len(questions) + 1
     question = input("Enter the question: ")
     option1 = input("Enter option 1: ")
